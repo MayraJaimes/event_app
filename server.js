@@ -28,8 +28,12 @@ app.get("/", function(req, res) {
 });
 
 var models = require("./models");
+require("./routes/apiRoutes.js")(app);
 var authRoute = require('./routes/auth.js')(app, passport);
 require('./config/passport/passport.js')(passport, models.user);
+
+//app.use(routes);
+//app.use(models);
 
 app.use(express.static("public"));
 

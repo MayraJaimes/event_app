@@ -1,8 +1,8 @@
 var path = require("path");
 module.exports = function (app) {
-    // app.get("/", function (req, res) {
-    //     res.sendFile(path.join(__dirname, "../views/index.handlebars"))
-    // });
+    app.get("/", function (req, res) {
+      res.sendFile(path.join(__dirname, "../views/index.handlebars"))
+    });
 
     // app.get("/signin", function (req, res) {
     //     res.sendFile(path.join(__dirname, "../views/signin.handlebars"))
@@ -16,7 +16,7 @@ module.exports = function (app) {
 
 
     app.get("/create", function (req, res) {
-        res.sendFile(path.join(__dirname, "../views/create.handlebars"))
+        res.sendFile(path.join(__dirname, "../views/event.handlebars"))
     });
 
     // app.get("/home", function (req, res) {

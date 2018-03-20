@@ -2,18 +2,13 @@ var db = require("../models");
 
 module.exports = function (app) {
 
-    //GET route for all events should we choose to use it:
-    app.get("/api/events", function (req, res) {
-        db.events.findAll({}).then(function (dbevents) {
-            res.json(dbevents);
-        });
-    });
     //POST route for saving an event:
     app.post("/api/events", function (req, res) {
         // console.log(req.body);
         db.events.create({
             event_name: req.body.event_name,
             location: req.body.location,
+            event_date: req.body.event_date,
             start_time: req.body.start_time,
             end_time: req.body.end_time
         })
@@ -21,6 +16,15 @@ module.exports = function (app) {
                 res.json(dbevents);
             });
     });
+
+    //GET route for all events should we choose to use it:
+    app.get("/api/events", function (req, res) {
+        db.events.findAll({}).then(function (dbevents) {
+            res.json(dbevents);
+        });
+    });
+
+
     //GET route for events and attendees and items:
     app.get("/api/guests", function (req, res) {
         db.guests.findAll({}).then(function (dbguests) {
@@ -39,6 +43,7 @@ module.exports = function (app) {
                 res.json(dbguests);
             });
     });
+
     //POST route for creating a user:
     app.post("/api/user", function (req, res) {
         db.User.create({
@@ -54,6 +59,7 @@ module.exports = function (app) {
                 res.json(dbUser);
             });
     });
+
     //POST route for creating items:
     app.post("/api/items", function (req, res) {
         db.items.create({
@@ -63,6 +69,7 @@ module.exports = function (app) {
                 res.json(dbitems);
             });
     });
+
     //DELETE route guests
     app.delete("/api/guests/:id", function (req, res) {
         db.guests.destroy({

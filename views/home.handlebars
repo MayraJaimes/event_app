@@ -28,7 +28,7 @@
 
 
     <div class="create-event">
-        <form class="form-create-event" id="create-event-form" name="create-event" method="POST" action="/#">       
+        <form class="form-create-event" id="create-event-form" name="create-event" method="POST" action="/api/events">       
             <h2 class="form-event-heading">Input Event Information</h2>
             <label for="event_name"><h5>What is the name of the event you will be hosting?</h5></label>
             <input type="text" class="form-control" id="event_name" name="event-name" placeholder="Name of Event" required="" autofocus="" />
@@ -45,7 +45,7 @@
             <label for="type-Event"><h5>What is the end time of the event?</h5></label>
             <input type="time" class="form-control" id="end-time" placeholder="End Time" required="" autofocus="" />
      
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Submit Event</button>   
+            <button class="btn btn-lg btn-primary btn-block" type="submit" id="create-event-form">Submit Event</button>   
         </form>
     </div>
 
