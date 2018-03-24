@@ -12,7 +12,7 @@ var express                 = require("express"),
 
     var flash=require("connect-flash");
 
-
+var PORT = process.env.PORT || 3000;
 
 var hbs = exphbs.create({
     defaultLayout: "main",
@@ -54,7 +54,7 @@ require('./config/passport/passport.js')(passport, models.user);
 //app.use(models);
 
 app.use(express.static("public"));
-var PORT = process.env.PORT || 3000;
+
 models.sequelize.sync().then(function() {
     console.log('Nice! Database looks fine')
  
