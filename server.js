@@ -57,11 +57,11 @@ app.use(express.static("public"));
 
 models.sequelize.sync().then(function() {
     console.log('Nice! Database looks fine')
+    app.listen(PORT, function () {
+        console.log("Server listening on: http://localhost:" + PORT);
+    });
  
 }).catch(function(err) {
     console.log(err, "Something went wrong with the Database Update!") 
 });
 
-app.listen(PORT, function() {
-    console.log("Server listening on: http://localhost:" + PORT);
-});
